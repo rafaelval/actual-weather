@@ -4,8 +4,8 @@ import styles from "./Card.module.css";
 export const Card = ({
   delCard,
   idcard,
-  pais,
-  nombre,
+  country,
+  name,
   image,
   temp,
   max,
@@ -19,8 +19,8 @@ export const Card = ({
       </span>
       <div className={styles.header}>
         <div className={styles.ciudad}>
-          <span>{pais}</span>
-          <h1>{nombre}</h1>
+          <span>{country}</span>
+          <h1>{name}</h1>
         </div>
         <div className={styles.image}>
           <img
@@ -34,7 +34,7 @@ export const Card = ({
       <span>{`Min: ${parseInt(min)} °C`}</span>
       <div className={styles.buttons}>
         <button>Detalle</button>
-        <button id={nombre} onClick={setPred}>
+        <button id={name} onClick={setPred}>
           Predet
         </button>
       </div>

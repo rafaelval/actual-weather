@@ -1,13 +1,14 @@
 .contsup {
       display: flex;
       border: rgb(215, 60, 60) solid 1px;
-      height: 20%;
+      height: 28%;
       justify-content: space-between;
   }
   
   .search {
       display: flex;
       border: black 1px solid;
+      flex-grow: 1;
   }
   
   .contprinc {
@@ -17,4 +18,5 @@
   .predet {
       display: flex;
       justify-content: flex-end;
+      flex-grow: 0.3;
   }

@@ -29,6 +29,7 @@ export const Home = ({
           arrayCities={arrayCities}
           setarrayCities={setarrayCities}
           setcityPred={setcityPred}
+          cityPred={cityPred}
         />
       </div>
     </div>

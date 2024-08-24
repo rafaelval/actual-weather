@@ -1,21 +1,30 @@
+.contPrinc{
+    width:30vw
+}
+
 .card {
       display: flex;
       flex-direction: column;
-      border: rgb(19, 128, 19) solid 1px;
-      padding: 10px;
+      border: rgb(19, 75, 128) solid 1px;
+      padding: 5px;
       border-radius: 15px;
-      margin: 35px;
-      min-width: 30%;
-      max-width: 50%;
+      margin: 20px;
+      min-width: 60%;
       min-height: 50%;
-      max-height: 80%;
+      background-color: rgb(37, 38, 49);
+      box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   }
   
   .ciudad {
       display: flex;
       flex-direction: column;
-      margin-bottom: -30px;
   }
+
+  .ciudad span, h1{
+    color: white;
+    font-size: 1em;
+  }
+
   
   .header {
       display: flex;
@@ -34,16 +43,57 @@
   
   .image {
       display: flex;
-      width: fit-content;
-      align-self: center;
+      justify-content: center;
+      overflow: hidden;
+      height: 4.5em;
   }
   
   .image img {
-      height: 100px;
+      height: 5em;
+  }
+
+  .contTemp{
+    display: flex;
+    justify-content: center;
+  }
+
+  .contTemp span{
+    color: white;
+  }
+
+  .description{
+    font-weight: 500;
+    font-size: 2em;
+  }
+
+  .minMax{
+    display: flex;
+    flex-direction: column;
+    font-size: 0.6em;
+    margin-left: 8px;
+  }
+
+
+  .temp{
+    font-size: 3em;
+    font-weight: 400;
+    margin-right: 8px;
+    
   }
   
-  .button {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 15px;
+  .details{
+    display: flex;
+    justify-content: space-around;
+  }
+  .detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7em;
+    color: white;
+  }
+
+  .detail :first-child{
+    font-weight: 750;
+    font-size: 0.8rem;
   }
