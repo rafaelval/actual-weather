@@ -25,8 +25,8 @@ export const Predet = ({ cityPred }) => {
                 <span className={styles.description}>
                   {cityPred.weather[0].description}
                 </span>
-                <span>{`${parseInt(cityPred.main.temp_max)}°C`}</span>
-                <span>{`${parseInt(cityPred.main.temp_min)}°C`}</span>
+                <span>{`${parseInt(cityPred.main.temp_max)}°C max`}</span>
+                <span>{`${parseInt(cityPred.main.temp_min)}°C min`}</span>
               </div>
             </div>
           </div>

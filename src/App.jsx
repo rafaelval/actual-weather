@@ -6,7 +6,6 @@ import { getCityByName } from "./request/request";
 export const App = () => {
   const [arrayCities, setarrayCities] = useState([]);
   const [cityPred, setcityPred] = useState(null);
-  console.log(cityPred);
 
   useEffect(() => {
     const city = JSON.parse(localStorage.getItem('initialCity'))

@@ -8,12 +8,17 @@ export const Searchbar = ({ arrayCities, setarrayCities }) => {
   async function search(e) {
     e.preventDefault();
     const city = await getCityByName(inputCity);
-    const arrayFilter = arrayCities.filter((el) => el.name === city.name);
+    if(city){
+      const arrayFilter = arrayCities.filter((el) => el.name === city.name);
     if (arrayFilter.length === 0) {
       setarrayCities([...arrayCities, city]);
     } else {
       alert(`La ciudad ${city.name} ya esta en la lista`);
     }
+    } else {
+      alert("la ciudad no existe")
+    }
+    
     setinputCity("");
   }
 

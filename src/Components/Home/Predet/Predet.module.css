@@ -8,7 +8,7 @@
       border: rgb(19, 75, 128) solid 1px;
       padding: 5px;
       border-radius: 15px;
-      margin: 20px;
+      margin: 35px;
       min-width: 60%;
       min-height: 50%;
       background-color: rgb(37, 38, 49);
@@ -45,11 +45,12 @@
       display: flex;
       justify-content: center;
       overflow: hidden;
-      height: 4.5em;
+      height: 7em;
   }
   
   .image img {
-      height: 5em;
+      height: 9em;
+      margin-top: -15px;
   }
 
   .contTemp{
