@@ -17,7 +17,12 @@ export const App = () => {
     }
       fetchData()
   } else {
-    setcityPred(city)
+    async function fetchData (){
+      const initialCity = await getCityByName(city.name)
+      setcityPred(initialCity)
+      localStorage.setItem('initialCity',JSON.stringify(initialCity))
+    }
+    fetchData()
   }
   }, [])
   

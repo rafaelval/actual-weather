@@ -89,7 +89,7 @@
     font-size: 0.8rem;
   }
 
-  @media screen and (max-width: 930px) {
+  @media screen and (max-width: 995px) {
     .description{
       font-weight: 500;
       font-size: 1.5em;
