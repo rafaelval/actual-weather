@@ -1,13 +1,19 @@
 .contsup {
       display: flex;
-      border: rgb(215, 60, 60) solid 1px;
+    
       height: 28%;
       justify-content: space-between;
+  }
+
+  .clock {
+   padding-top: 1%;
+   padding-left: 10%;
+   width: 70vw;
   }
   
   .search {
       display: flex;
-      border: black 1px solid;
+      flex-direction: column;
       flex-grow: 1;
   }
   

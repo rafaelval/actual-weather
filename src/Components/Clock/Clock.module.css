@@ -1,0 +1,28 @@
+@font-face{
+      font-family: 'digital-clock-font';
+      src: url(../../helpers/digital-7.ttf);
+}
+
+.container {
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      width: 6rem;
+      margin: 5px;
+  }
+
+  .contPrinc{
+      display: flex;
+  }
+
+  .contador {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      font-family: 'digital-clock-font';
+      font-weight: bold;
+      color: white;
+      background-color: rgb(2, 2, 2);
+      border-radius: 10px;
+  }

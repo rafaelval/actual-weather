@@ -1,5 +1,6 @@
 .contPrinc{
-    width:30vw
+    width:30vw;
+    margin-right: 10%;
 }
 
 .card {
@@ -29,16 +30,6 @@
   .header {
       display: flex;
       flex-direction: column;
-  }
-  
-  .close {
-      display: flex;
-      align-self: flex-end;
-      color: white;
-      background-color: rgb(14, 71, 14);
-      font-weight: bold;
-      padding: 0px 7px 2px 7px;
-      border-radius: 10px;
   }
   
   .image {

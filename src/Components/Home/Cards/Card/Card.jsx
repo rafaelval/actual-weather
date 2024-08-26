@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./Card.module.css";
+import { strings } from "../../../../helpers/strings";
+import { IoMdCloseCircle } from "react-icons/io";
 
 export const Card = ({
   delCard,
@@ -8,15 +10,12 @@ export const Card = ({
   name,
   image,
   temp,
-  max,
-  min,
   setPred,
+  description,
 }) => {
   return (
     <div className={styles.card}>
-      <span className={styles.close} onClick={delCard} id={idcard}>
-        X
-      </span>
+      <IoMdCloseCircle className={styles.close} onClick={delCard} id={idcard}/>
       <div className={styles.header}>
         <div className={styles.ciudad}>
           <span>{country}</span>
@@ -29,13 +28,13 @@ export const Card = ({
           />
         </div>
       </div>
-      <span>{`Temperatura actual: ${parseInt(temp)} °C`}</span>
-      <span>{`Max: ${parseInt(max)} °C`}</span>
-      <span>{`Min: ${parseInt(min)} °C`}</span>
+      <div className={styles.contTemp}>
+        <span className={styles.description}>{description}</span>
+        <span className={styles.temp}>{`${parseInt(temp)}°C`}</span>
+      </div>
       <div className={styles.buttons}>
-        <button>Detalle</button>
         <button id={name} onClick={setPred}>
-          Predet
+          {strings.predet}
         </button>
       </div>
     </div>

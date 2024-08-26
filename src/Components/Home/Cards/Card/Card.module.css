@@ -1,36 +1,62 @@
 .card {
-      display: flex;
-      flex-direction: column;
-      border: rgb(19, 128, 19) solid 1px;
-      padding: 10px;
-      border-radius: 15px;
-      margin: 15px;
-      width: 20%;
-      min-width: 200px;
-      max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    border: rgb(19, 75, 128) solid 1px;
+    padding: 5px;
+    border-radius: 15px;
+    margin: 15px;
+    min-width: 15%;
+    min-height: 50%;
+    background-color: rgba(62, 62, 62, 0.445);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   }
   
   .ciudad {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: -30px;
+    display: flex;
+    flex-direction: column;
+    color: white;
   }
   
   .header {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
   
   .close {
-      display: flex;
       align-self: flex-end;
-      color: white;
-      background-color: rgb(14, 71, 14);
-      font-weight: bold;
-      padding: 0px 7px 2px 7px;
-      border-radius: 10px;
+      cursor: pointer;
+     color: rgb(188, 190, 190);
+  }
+
+  .contTemp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contTemp :first-child{
+    font-size: 1em;
+  }
+
+  .contTemp span{
+    color: white;
+  }
+
+  .description{
+    font-weight: 500;
+    font-size: 2em;
+  }
+
+  .temp{
+    font-size: 3em;
+    font-weight: 400;
+    margin-right: 8px;
+    
   }
   
+ 
+ 
   .image {
       display: flex;
       width: fit-content;

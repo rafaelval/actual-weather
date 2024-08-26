@@ -16,7 +16,7 @@ body {
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   font-family: 'Arial', sans-serif;
-  background-image:  url(/src/img/clouds.png),linear-gradient(to bottom, #011e37, #55667c) ;
+  background-image:  url(/src/img/clouds.png),linear-gradient(to bottom, #034884, #55667c) ;
   background-blend-mode: hard-light;
 }
 

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { getCityByName } from "../../../request/request";
 import styles from "./Searchbar.module.css";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { strings } from "../../../helpers/strings";
 
 export const Searchbar = ({ arrayCities, setarrayCities }) => {
   const [inputCity, setinputCity] = useState("");
@@ -27,11 +30,11 @@ export const Searchbar = ({ arrayCities, setarrayCities }) => {
   }
 
   return (
-    <div>
-      <span>Búsqueda por ciudad</span>
+    <div className={styles.contPrinc}>
+      <span className={styles.title}>{strings.searchByCity}</span>
       <form onSubmit={search}>
-        <input type="text" onChange={handleChange} value={inputCity} />
-        <input type="submit" value="Buscar" />
+        <input type="text" onChange={handleChange} value={inputCity} placeholder="Ingrese la ciudad"/>
+        <button type="submit"><FontAwesomeIcon className={styles.icon} icon={faSearch}/></button>
       </form>
     </div>
   );

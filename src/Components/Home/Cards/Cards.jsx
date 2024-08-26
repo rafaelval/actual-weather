@@ -3,11 +3,12 @@ import { Card } from "./Card/Card";
 import styles from "./Cards.module.css";
 import { getCityByName } from "../../../request/request";
 
-export const Cards = ({ arrayCities, setarrayCities, setcityPred,cityPred }) => {
+export const Cards = ({ arrayCities, setarrayCities, setcityPred }) => {
   function delCard(e) {
     const eliminar = arrayCities.filter(
-      (el) => el.id !== parseInt(e.target.id)
+      (el) => el.id !== parseInt(e.currentTarget.id)
     );
+    console.log(e.target)
     setarrayCities(eliminar);
   }
 
@@ -22,6 +23,7 @@ export const Cards = ({ arrayCities, setarrayCities, setcityPred,cityPred }) => 
     fetchData()
   }
 
+
   return (
     <div className={styles.cardscont}>
       {arrayCities.map((el, i) => {
@@ -32,11 +34,10 @@ export const Cards = ({ arrayCities, setarrayCities, setcityPred,cityPred }) => 
             name={el.name}
             image={el.weather[0].icon}
             temp={el.main.temp}
-            max={el.main.temp_max}
-            min={el.main.temp_min}
             delCard={delCard}
             idcard={el.id}
             setPred={setPred}
+            description={el.weather[0].description}
           />
         );
       })}
