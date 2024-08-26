@@ -88,10 +88,14 @@
     .image img{
         height: 50px;
     }
+    .card{
+        width: 23%;
+    }
 }
 
 @media screen and (max-width: 412px) {
     .card{
           margin: 0 10px 10px 10px;
+          width: 40%;
     }
   }

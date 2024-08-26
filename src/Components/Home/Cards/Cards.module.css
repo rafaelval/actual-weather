@@ -4,4 +4,5 @@
       margin: 20px;
       width: 100%;
       flex-wrap: wrap;
+      box-sizing: border-box;
   }
