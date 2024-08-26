@@ -8,7 +8,6 @@ export const Cards = ({ arrayCities, setarrayCities, setcityPred }) => {
     const eliminar = arrayCities.filter(
       (el) => el.id !== parseInt(e.currentTarget.id)
     );
-    console.log(e.target)
     setarrayCities(eliminar);
   }
 

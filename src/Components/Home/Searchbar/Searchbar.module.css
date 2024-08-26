@@ -37,3 +37,34 @@ form {
 .icon{
       color: rgb(66, 104, 175);
 }
+
+@media screen and (max-width: 735px) {
+      .contPrinc {
+            position: relative;
+            top: 70%;
+      }
+}
+
+@media screen and (max-width: 610px) {
+      .contPrinc {
+            top: 70%;
+      }
+      .title{
+            font-size: 1.1rem;
+      }
+}
+
+@media screen and (max-width: 540px) {
+      .contPrinc{
+        width: 100vw;
+        top: 65%;
+        align-self: center;
+        margin-left: 1%;
+      }
+  }
+
+  @media screen and (max-width: 412px) {
+      .contPrinc{
+            top: 0
+      }
+    }

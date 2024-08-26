@@ -26,3 +26,19 @@
       justify-content: flex-end;
       flex-grow: 0.3;
   }
+
+  @media screen and (max-width: 735px) {
+    hr {
+    
+          margin-top: 18%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .clock{
+        width: 100vw;
+        padding-left: 0;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+}

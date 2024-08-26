@@ -55,8 +55,6 @@
     
   }
   
- 
- 
   .image {
       display: flex;
       width: fit-content;
@@ -69,6 +67,31 @@
   
   .buttons {
       display: flex;
+      align-self: center;
       justify-content: space-around;
-      margin-top: 15px;
+      margin-top: 10px;
+      background-color: grey;
+      width: 50%;
+      border: 1px solid rgb(85, 85, 85);
+      border-radius: 5px;
+  }
+
+  .buttons button{
+    cursor: pointer;
+    color: white;
+  }
+
+  @media screen and (max-width: 610px) {
+    .temp{
+        font-size: 1.5rem;
+    }
+    .image img{
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 412px) {
+    .card{
+          margin: 0 10px 10px 10px;
+    }
   }

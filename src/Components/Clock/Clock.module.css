@@ -6,9 +6,21 @@
 .container {
       display: flex;
       flex-direction: column;
+      align-items: center;
       border-radius: 10px;
-      width: 6rem;
+      min-width: 6rem;
       margin: 5px;
+  }
+
+  .container p{
+      padding: 0 5px;
+  }
+
+  .container span{
+   color: rgb(185, 185, 185);
+   font-weight: 600;
+   text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;
+   padding-top: 8px;
   }
 
   .contPrinc{
@@ -25,4 +37,31 @@
       color: white;
       background-color: rgb(2, 2, 2);
       border-radius: 10px;
+      width: 6rem;
+  }
+
+  @media screen and (max-width: 540px) {
+      .container{
+            min-width: 5rem;
+      }
+      .contador{
+            font-size: 0.8rem;
+            width: 5rem;
+      }
+      .container span{
+            padding-top: 5px;
+            font-size: 0.7rem;
+      }
+      .contPrinc{
+            margin-left: -5%;
+      }
+  }
+
+  @media screen and (max-width: 412px) {
+      .contPrinc{
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: -12%;
+            margin-top: 5%;
+      }
   }
