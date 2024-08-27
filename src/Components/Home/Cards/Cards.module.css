@@ -1,8 +1,7 @@
 .cardscont {
       display: flex;
       justify-content: stretch;
-      margin: 20px;
-      width: 100%;
+      width: 98%;
       flex-wrap: wrap;
       box-sizing: border-box;
   }

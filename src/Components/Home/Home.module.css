@@ -1,13 +1,16 @@
+.contprinc {
+    height: 100%;
+  }
+
 .contsup {
   display: flex;
-  height: 28%;
+  min-height: 55%;
   justify-content: space-between;
 }
 
 .clock {
   padding-top: 1%;
-  padding-left: 10%;
-  width: 70vw;
+  width: 98%;
 }
 
 hr{
@@ -17,30 +20,65 @@ hr{
 .search {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-}
-
-.contprinc {
-  height: 1200px;
+  min-width: 60%;
 }
 
 .predet {
   display: flex;
   justify-content: flex-end;
-  flex-grow: 0.3;
+  min-width: 39%;
+}
+
+.continf{
+    width: 98%;
 }
 
 @media screen and (max-width: 735px) {
+    .contsup{
+        flex-direction: column;
+        align-items: center;
+        min-width: 98%;
+    }
+    .search{
+        min-width: 98%;
+        height: 70vh;
+    }
+    .predet{
+        position: absolute;
+        min-width: 98%;
+        height: 52vh;
+        justify-content: center;
+    }
   hr {
-    margin-top: 18%;
+    margin-top: 5px;
   }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 610px) {
+    .clock{
+        width: 98%;
+        margin-left: auto;
+        margin-right: auto;
+     
+    }
+}
+
+@media screen and (max-width: 549px) {
   .clock {
-    width: 100vw;
-    padding-left: 0;
-    margin-left: 15%;
-    margin-right: 15%;
+    width: 98%;
+    padding-left: 2%;
   }
 }
+
+@media screen and (max-width: 412) {
+    .search{
+     height: 40vh;
+    }
+   }
+
+@media screen and (max-width: 360px) {
+   .search{
+    height: 50vh;
+   }
+  }
+

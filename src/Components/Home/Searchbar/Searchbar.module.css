@@ -41,13 +41,17 @@ form {
 @media screen and (max-width: 735px) {
       .contPrinc {
             position: relative;
-            top: 70%;
+            top: 50%;
+            margin-left: auto;
+      }
+      .title{
+            margin-bottom: 10px;
       }
 }
 
 @media screen and (max-width: 610px) {
       .contPrinc {
-            top: 70%;
+            top: 55%;
       }
       .title{
             font-size: 1.1rem;
@@ -56,15 +60,16 @@ form {
 
 @media screen and (max-width: 540px) {
       .contPrinc{
-        width: 100vw;
-        top: 65%;
+        width: 98%;
+        top: 57%;
         align-self: center;
-        margin-left: 1%;
+       
       }
   }
 
   @media screen and (max-width: 412px) {
       .contPrinc{
-            top: 0
+            top: 0;
+            width: 98%;
       }
     }
