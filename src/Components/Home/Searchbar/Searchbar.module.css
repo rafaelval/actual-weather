@@ -69,7 +69,7 @@ form {
 
   @media screen and (max-width: 412px) {
       .contPrinc{
-            top: 0;
+            top: 5px;;
             width: 98%;
       }
     }
