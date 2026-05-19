@@ -1,14 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo, memo } from "react";
 import styles from "./Clock.module.css";
 
-export const Clock = () => {
-  const cities = [
-    { name: "New York", offset: 0 },
+// Función helper fuera del componente para no redefinirla en cada render
+const pad = (n) => String(n).padStart(2, "0");
+
+const ClockItem = memo(({ cityTime, styles }) => (
+  <div className={styles.container}>
+    <div className={styles.contador}>
+      {/* Eliminamos los espacios extra alrededor de los : */}
+      <p>{pad(cityTime.time.getHours())}:{pad(cityTime.time.getMinutes())}:{pad(cityTime.time.getSeconds())}</p>
+    </div>
+    <span>{cityTime.name}</span>
+  </div>
+));
+
+ClockItem.displayName = "ClockItem";
+
+export const Clock = memo(() => {
+  const cities = useMemo(() => [
+    { name: "New York",    offset: 0  },
     { name: "Los Angeles", offset: -3 },
-    { name: "London", offset: 5 },
-    { name: "Tokyo", offset: 14 },
-    { name: "Sydney", offset: 16 },
-  ];
+    { name: "London",      offset: 5  },
+    { name: "Tokyo",       offset: 14 },
+    { name: "Sydney",      offset: 16 },
+  ], []);
+
   const [cityTimes, setCityTimes] = useState(
     cities.map((city) => ({ name: city.name, time: new Date() }))
   );
@@ -17,10 +33,10 @@ export const Clock = () => {
     const timer = setInterval(() => {
       const currentTime = new Date();
       setCityTimes(
-        cities.map((city) => {
-          const cityTime = new Date(currentTime.getTime() + city.offset * 60 * 60 * 1000);
-          return { name: city.name, time: cityTime };
-        })
+        cities.map((city) => ({
+          name: city.name,
+          time: new Date(currentTime.getTime() + city.offset * 60 * 60 * 1000),
+        }))
       );
     }, 1000);
 
@@ -30,18 +46,10 @@ export const Clock = () => {
   return (
     <div className={styles.contPrinc}>
       {cityTimes.map((cityTime) => (
-        <div className={styles.container} key={cityTime.name}>
-          <div className={styles.contador}>
-            <p>
-              {cityTime.time.getHours() < 10 ? ` 0${cityTime.time.getHours()}` : cityTime.time.getHours()} :{" "}
-              {cityTime.time.getMinutes() < 10 ? ` 0${cityTime.time.getMinutes()}` : cityTime.time.getMinutes()}{" "}
-              :{" "}
-              {cityTime.time.getSeconds() < 10 ? ` 0${cityTime.time.getSeconds()}` : cityTime.time.getSeconds()}
-            </p>
-          </div>
-          <span>{cityTime.name}</span>
-        </div>
+        <ClockItem key={cityTime.name} cityTime={cityTime} styles={styles} />
       ))}
     </div>
   );
-};
+});
+
+Clock.displayName = "Clock";

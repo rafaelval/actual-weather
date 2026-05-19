@@ -1,173 +1,294 @@
-.contPrinc{
-    width:28vw;
-    margin-right: 10%;
-    
+/* ── Contenedor externo ── */
+.contPrinc {
+  width: 100%;
+  max-width: 35vw;          /* En desktop ocupa su columna */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;  /* flex-start en vez de center: el card no flota */
+  padding: 20px;
 }
 
+/* ── Card principal ── */
 .card {
-      display: flex;
-      flex-direction: column;
-      border: rgb(19, 75, 128) solid 1px;
-      padding: 5px;
-      border-radius: 15px;
-      margin: 35px;
-      min-width: 60%;
-      min-height: 50%;
-      background-color: rgb(37, 38, 49);
-      box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  }
-  
-  .ciudad {
-      display: flex;
-      flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 20px;                /* Reemplaza los margin-bottom sueltos */
+  padding: 28px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, rgba(20, 70, 140, 0.95) 0%, rgba(40, 100, 180, 0.95) 100%);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
 
-  .ciudad span, h1{
-    color: white;
-    font-size: 1em;
-  }
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
 
-  
-  .header {
-      display: flex;
-      flex-direction: column;
+/* ── Header: ciudad + ícono siempre en fila ── */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;  /* Ciudad a la izquierda, ícono a la derecha */
+  align-items: center;
+  gap: 12px;
+}
+
+.ciudad {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Evita que nombres largos rompan el layout */
+  overflow: hidden;
+  min-width: 0;             /* Permite que flex trunque el texto */
+}
+
+.ciudad span {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ciudad h1 {
+  color: white;
+  font-size: 2rem;
+  margin-top: 6px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  /* Trunca nombres de ciudad muy largos */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;           /* El ícono no se encoge si el nombre es largo */
+}
+
+.image img {
+  height: 120px;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* ── Temperatura ── */
+.contTemp {
+  display: flex;
+  flex-direction: row;      /* Temperatura grande + min/max en fila */
+  align-items: center;
+  gap: 20px;
+}
+
+.temp {
+  font-size: 4rem;
+  font-weight: 300;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: white;
+  flex-shrink: 0;
+}
+
+.minMax {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.minMax span {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.description {
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: capitalize;
+  opacity: 0.95;
+  color: white;
+}
+
+/* ── Detalles: viento, humedad, presión ── */
+.details {
+  display: flex;
+  justify-content: space-around;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  flex: 1;
+  text-align: center;
+  gap: 6px;
+}
+
+.detail :first-child {
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+}
+
+.detail :last-child {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* ════════════════════════════
+   MEDIA QUERIES
+════════════════════════════ */
+
+/* ── 1200px ── */
+@media screen and (max-width: 1200px) {
+  .contPrinc {
+    max-width: 42vw;
+    padding: 15px;
   }
-  
-  .image {
-      display: flex;
-      justify-content: center;
-      overflow: hidden;
-      height: 7em;
+  .card {
+    padding: 22px;
   }
-  
+  .temp {
+    font-size: 3.5rem;
+  }
   .image img {
-      height: 9em;
-      margin-top: -15px;
+    height: 105px;
   }
+}
 
-  .contTemp{
-    display: flex;
+/* ── 995px ── */
+@media screen and (max-width: 995px) {
+  .contPrinc {
+    max-width: 48vw;
+  }
+  .temp {
+    font-size: 3rem;
+  }
+  .ciudad h1 {
+    font-size: 1.7rem;
+  }
+  .image img {
+    height: 90px;
+  }
+}
+
+/* ── 780px ── */
+@media screen and (max-width: 780px) {
+  .contPrinc {
+    max-width: 52vw;
+  }
+  .card {
+    gap: 16px;
+  }
+}
+
+/*
+  ── 735px ──
+  Aquí el layout padre colapsa a columna (suponemos).
+  .contPrinc pasa a full width y el card se centra.
+*/
+@media screen and (max-width: 735px) {
+  .contPrinc {
+    max-width: 100%;
     justify-content: center;
+    padding: 0 16px;
+    margin-top: 20px;
   }
+  .card {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .ciudad h1 {
+    font-size: 1.8rem;
+  }
+  .temp {
+    font-size: 3.5rem;
+  }
+  .image img {
+    height: 100px;
+  }
+}
 
-  .contTemp span{
-    color: white;
+/* ── 480px ── */
+@media screen and (max-width: 480px) {
+  .contPrinc {
+    padding: 0 10px;
   }
-
-  .description{
-    font-weight: 500;
-    font-size: 2em;
+  .card {
+    padding: 16px;
+    gap: 14px;
+    max-width: 100%;
   }
-
-  .minMax{
-    display: flex;
-    flex-direction: column;
-    font-size: 0.6em;
-    margin-left: 8px;
+  .ciudad h1 {
+    font-size: 1.4rem;
   }
-
-
-  .temp{
-    font-size: 3em;
-    font-weight: 400;
-    margin-right: 8px;
-  }
-  
-  .details{
-    display: flex;
-    justify-content: space-around;
-  }
-  .detail{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 0.7em;
-    color: white;
-  }
-
-  .detail :first-child{
-    font-weight: 750;
+  .ciudad span {
     font-size: 0.8rem;
   }
-
-  @media screen and (max-width: 995px) {
-    .description{
-      font-weight: 500;
-      font-size: 1.5em;
-    }
-    .temp{
-      font-size: 2em;
-    }
-    .detail :first-child{
-      font-size:0.6rem ;
-    }
+  .temp {
+    font-size: 2.8rem;
+    letter-spacing: -1px;
   }
-
-  @media screen and (max-width: 780px) {
-    .card {
-      margin-top: 25%;
-      margin-right: 10%;
-    }
-    .temp{
-      font-size: 1.8em;
-      margin-left: 5px;
-      margin-right: 3px;
-    }
+  .image img {
+    height: 80px;
   }
-  @media screen and (max-width: 735px) {
-    .card {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 45%;
-    align-items: center;
-    padding: 2px 2px 0 2px;
-    }
-    .image img {
-      height: 7em;
-      margin-top: -25px;
+  .details {
+    padding: 14px 10px;
+    gap: 8px;
   }
-    .header{
-     height: 10em;
-     width: 100%;
-    }
-    .ciudad{
-      padding-left: 15px;
-      padding-top: 15px;
-    }
-    .temp{
-      font-size: 1.8em;
-      margin-left: 5px;
-      margin-right: 3px;
-      margin-top: -55px;
-    }
-    .minMax{
-      margin-top: -50px;
-    }
-    .detail{
-      margin-top: 15px;
-    }
-    .details{
-      width: 100%;
-    }
-    .contPrinc{
-      margin-right: 0;
-    }
+  .detail :last-child {
+    font-size: 1rem;
   }
-
-  @media screen and (max-width: 540px) {
-    .contPrinc{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 98%;
-      margin-top: -150px;
-      align-self: center;
-      margin-left: 10%;
-    }
+  .minMax span {
+    font-size: 0.82rem;
+  }
 }
 
-@media screen and (max-width: 412px) {
-  .contPrinc{
-        margin-left: 15%;
+/* ── 360px ── */
+@media screen and (max-width: 360px) {
+  .card {
+    padding: 12px;
+    border-radius: 18px;
+  }
+  .ciudad h1 {
+    font-size: 1.2rem;
+  }
+  .temp {
+    font-size: 2.4rem;
+  }
+  .contTemp {
+    gap: 12px;
+  }
+  .image img {
+    height: 70px;
+  }
+  .details {
+    flex-wrap: wrap;  /* Si no caben los 3 en fila, rompen a 2 columnas */
+    padding: 12px;
+  }
+  .detail {
+    min-width: 45%;
   }
 }

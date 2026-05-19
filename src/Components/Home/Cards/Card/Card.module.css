@@ -1,101 +1,258 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    border: rgb(19, 75, 128) solid 1px;
-    padding: 5px;
-    border-radius: 15px;
-    margin: 15px;
-    min-width: 15%;
-    min-height: 50%;
-    background-color: rgba(62, 62, 62, 0.445);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  }
-  
-  .ciudad {
-    display: flex;
-    flex-direction: column;
-    color: white;
-  }
-  
-  .header {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .close {
-      align-self: flex-end;
-      cursor: pointer;
-     color: rgb(188, 190, 190);
-  }
-
-  .contTemp{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .contTemp :first-child{
-    font-size: 1em;
-  }
-
-  .contTemp span{
-    color: white;
-  }
-
-  .description{
-    font-weight: 500;
-    font-size: 2em;
-  }
-
-  .temp{
-    font-size: 3em;
-    font-weight: 400;
-    margin-right: 8px;
-    
-  }
-  
-  .image {
-      display: flex;
-      width: fit-content;
-      align-self: center;
-  }
-  
-  .image img {
-      height: 100px;
-  }
-  
-  .buttons {
-      display: flex;
-      align-self: center;
-      justify-content: space-around;
-      margin-top: 10px;
-      background-color: grey;
-      width: 50%;
-      border: 1px solid rgb(85, 85, 85);
-      border-radius: 5px;
-  }
-
-  .buttons button{
-    cursor: pointer;
-    color: white;
-  }
-
-  @media screen and (max-width: 610px) {
-    .temp{
-        font-size: 1.5rem;
-    }
-    .image img{
-        height: 50px;
-    }
-    .card{
-        width: 23%;
-    }
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 20px 15px;
+  border-radius: 20px;
+  margin: 12px;
+  min-width: 160px;
+  min-height: 280px;
+  background: linear-gradient(135deg, rgba(30, 90, 160, 0.95) 0%, rgba(45, 100, 180, 0.95) 100%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
-@media screen and (max-width: 412px) {
-    .card{
-          margin: 10px;
-          width: 40%;
-    }
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, rgba(40, 110, 180, 0.98) 0%, rgba(55, 120, 200, 0.98) 100%);
+}
+
+.ciudad {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-bottom: 15px;
+  /* Evita que el texto se desborde en nombres largos */
+  overflow: hidden;
+}
+
+.ciudad span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.8);
+  /* Corta texto largo de país */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ciudad h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 5px;
+  color: white;
+  letter-spacing: 0.5px;
+  /* Corta nombres de ciudad largos */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.close {
+  align-self: flex-end;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+  transition: all 0.2s ease;
+  margin: -5px -5px 0 0;
+  /* Área de toque más grande en mobile */
+  padding: 4px;
+}
+
+.close:hover {
+  color: white;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.contTemp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.contTemp :first-child {
+  font-size: 1rem;
+}
+
+.contTemp span {
+  color: white;
+}
+
+.description {
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  opacity: 0.95;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.temp {
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.image {
+  display: flex;
+  width: fit-content;
+  align-self: center;
+  margin: 10px 0;     /* Reducido para dar más espacio al contenido */
+}
+
+.image img {
+  height: 100px;      /* Bajado un poco del original 120px como base */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.buttons {
+  display: flex;
+  align-self: center;
+  justify-content: space-around;
+  margin-top: auto;
+  width: 100%;          /* Era 80% — en mobile el 80% apretaba el botón */
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.buttons:hover {
+  transform: scale(1.05);
+}
+
+.buttons button {
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  width: 100%;          /* Botón ocupa todo el ancho disponible */
+}
+
+.buttons button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ── 1200px ── */
+@media screen and (max-width: 1200px) {
+  .card {
+    min-width: 150px;
+    min-height: 260px;
+    padding: 15px 12px;
+    margin: 10px;
   }
+  .temp {
+    font-size: 3rem;
+  }
+  .image img {
+    height: 90px;
+  }
+}
+
+/* ── 768px ── */
+@media screen and (max-width: 768px) {
+  .card {
+    min-width: 140px;
+    min-height: 240px;
+    margin: 8px;
+    padding: 12px 10px;
+  }
+  .ciudad h1 {
+    font-size: 1.4rem;
+  }
+  .temp {
+    font-size: 2.5rem;
+  }
+  .description {
+    font-size: 0.95rem;
+  }
+  .image img {
+    height: 75px;
+  }
+}
+
+/* ── 610px ── */
+@media screen and (max-width: 610px) {
+  .card {
+    min-width: 42%;   /* Dos cards por fila en móvil mediano */
+    margin: 6px;
+  }
+}
+
+/* ── 480px ── */
+@media screen and (max-width: 480px) {
+  .card {
+    min-width: 44%;   /* Dos cards caben con margen */
+    min-height: 210px;
+    padding: 10px 8px;
+    margin: 5px;
+  }
+  .ciudad h1 {
+    font-size: 1.1rem;
+  }
+  .ciudad span {
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+  }
+  .temp {
+    font-size: 1.9rem;
+  }
+  .description {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+  .image img {
+    height: 60px;
+  }
+  .buttons button {
+    font-size: 0.75rem;
+    padding: 6px 8px;
+  }
+  .close {
+    font-size: 1.2rem;
+  }
+}
+
+/* ── 360px ── Pantallas muy pequeñas: una card casi full width */
+@media screen and (max-width: 360px) {
+  .card {
+    min-width: 90%;
+    min-height: 200px;
+    margin: 6px auto;
+  }
+  .ciudad h1 {
+    font-size: 1.3rem;
+  }
+  .temp {
+    font-size: 2.2rem;
+  }
+  .image img {
+    height: 70px;
+  }
+}

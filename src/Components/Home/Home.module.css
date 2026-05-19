@@ -1,90 +1,132 @@
 .contprinc {
-    height: 100%;
-  }
+  height: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
 
 .contsup {
   display: flex;
-  min-height: 55%;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 30px;
 }
 
-.clock {
-  padding-top: 1%;
-  width: 98%;
-}
-
-hr{
-    border: 2px dashed rgb(146, 146, 148);
-}
-
+/*
+  Cambiamos min-width por flex para que los dos paneles
+  compartan el espacio disponible sin riesgo de desborde.
+  .search toma 58% y .predet el 38%, el gap ocupa el resto.
+*/
 .search {
+  flex: 0 0 58%;         /* no crece, no encoge, base 58% */
   display: flex;
   flex-direction: column;
-  min-width: 60%;
+  min-width: 0;          /* permite que flex trunque contenido interno si hace falta */
 }
 
 .predet {
+  flex: 0 0 38%;
   display: flex;
   justify-content: flex-end;
-  min-width: 39%;
+  min-width: 0;
+  animation: slideInRight 0.6s ease-out 0.2s backwards;
 }
 
-.continf{
-    width: 98%;
+.clock {
+  width: 100%;
+  padding-top: 10px;
+  animation: slideInLeft 0.6s ease-out;
 }
 
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  margin: 20px 0;
+}
+
+.continf {
+  width: 100%;
+  animation: fadeIn 0.8s ease-out 0.4s backwards;
+}
+
+/* ── Animaciones ── */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ════════════════════════════
+   MEDIA QUERIES
+════════════════════════════ */
+
+/* ── 1100px: el Predet empieza a apretarse, le damos más espacio ── */
+@media screen and (max-width: 1100px) {
+  .contsup {
+    gap: 20px;
+  }
+  .search {
+    flex-basis: 54%;
+  }
+  .predet {
+    flex-basis: 42%;
+  }
+}
+
+/*
+  ── 735px: layout pasa a columna ──
+  .search y .predet dejan de ser columnas y se apilan.
+  Se consolidan todos los ajustes de clock aquí,
+  eliminando los 4 breakpoints repetidos del original.
+*/
 @media screen and (max-width: 735px) {
-    .contsup{
-        flex-direction: column;
-        align-items: center;
-        min-width: 98%;
-    }
-    .search{
-        min-width: 98%;
-        height: 70vh;
-    }
-    .predet{
-        position: absolute;
-        min-width: 98%;
-        height: 52vh;
-        justify-content: center;
-    }
-  hr {
-    margin-top: 5px;
+  .contprinc {
+    padding: 15px;
   }
-}
-
-@media screen and (max-width: 610px) {
-    .clock{
-        width: 98%;
-        margin-left: auto;
-        margin-right: auto;
-     
-    }
-}
-
-@media screen and (max-width: 549px) {
+  .contsup {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 20px;
+  }
+  .search {
+    flex: none;
+    width: 100%;
+  }
+  .predet {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
   .clock {
-    width: 98%;
-    padding-left: 2%;
+    width: 100%;
+    padding-top: 8px;
+    margin-bottom: 12px;
+  }
+  hr {
+    margin: 15px 0;
   }
 }
 
-@media screen and (max-width: 412px) {
-    .search{
-     height: 60vh;
-    }
-    .predet{
-        height: 40vh;
-    }
-   }
-
-@media screen and (max-width: 360px) {
-   .search{
-    height: 50vh;
-   }
-   .predet{
-    height: 40vh;
-   }
+/* ── 480px ── */
+@media screen and (max-width: 480px) {
+  .contprinc {
+    padding: 10px;
   }
-
+  .clock {
+    margin-bottom: 10px;
+  }
+}
