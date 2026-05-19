@@ -26,7 +26,6 @@
   flex-direction: column;
   color: white;
   margin-bottom: 15px;
-  /* Evita que el texto se desborde en nombres largos */
   overflow: hidden;
 }
 
@@ -37,7 +36,6 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   color: rgba(255, 255, 255, 0.8);
-  /* Corta texto largo de país */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -49,7 +47,6 @@
   margin-top: 5px;
   color: white;
   letter-spacing: 0.5px;
-  /* Corta nombres de ciudad largos */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -67,7 +64,6 @@
   font-size: 1.5rem;
   transition: all 0.2s ease;
   margin: -5px -5px 0 0;
-  /* Área de toque más grande en mobile */
   padding: 4px;
 }
 
@@ -111,11 +107,11 @@
   display: flex;
   width: fit-content;
   align-self: center;
-  margin: 10px 0;     /* Reducido para dar más espacio al contenido */
+  margin: 10px 0;    
 }
 
 .image img {
-  height: 100px;      /* Bajado un poco del original 120px como base */
+  height: 100px;      
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
   animation: float 3s ease-in-out infinite;
 }
@@ -130,7 +126,7 @@
   align-self: center;
   justify-content: space-around;
   margin-top: auto;
-  width: 100%;          /* Era 80% — en mobile el 80% apretaba el botón */
+  width: 100%;  
   padding: 0;
   transition: all 0.3s ease;
 }
@@ -150,7 +146,7 @@
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(8px);
-  width: 100%;          /* Botón ocupa todo el ancho disponible */
+  width: 100%;
 }
 
 .buttons button:hover {
@@ -159,7 +155,6 @@
   transform: translateY(-2px);
 }
 
-/* ── 1200px ── */
 @media screen and (max-width: 1200px) {
   .card {
     min-width: 150px;
@@ -175,7 +170,6 @@
   }
 }
 
-/* ── 768px ── */
 @media screen and (max-width: 768px) {
   .card {
     min-width: 140px;
@@ -197,18 +191,16 @@
   }
 }
 
-/* ── 610px ── */
 @media screen and (max-width: 610px) {
   .card {
-    min-width: 42%;   /* Dos cards por fila en móvil mediano */
+    min-width: 42%; 
     margin: 6px;
   }
 }
 
-/* ── 480px ── */
 @media screen and (max-width: 480px) {
   .card {
-    min-width: 44%;   /* Dos cards caben con margen */
+    min-width: 44%;
     min-height: 210px;
     padding: 10px 8px;
     margin: 5px;
@@ -239,7 +231,6 @@
   }
 }
 
-/* ── 360px ── Pantallas muy pequeñas: una card casi full width */
 @media screen and (max-width: 360px) {
   .card {
     min-width: 90%;

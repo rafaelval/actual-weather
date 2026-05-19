@@ -15,16 +15,11 @@
   margin-bottom: 30px;
 }
 
-/*
-  Cambiamos min-width por flex para que los dos paneles
-  compartan el espacio disponible sin riesgo de desborde.
-  .search toma 58% y .predet el 38%, el gap ocupa el resto.
-*/
 .search {
-  flex: 0 0 58%;         /* no crece, no encoge, base 58% */
+  flex: 0 0 58%;   
   display: flex;
   flex-direction: column;
-  min-width: 0;          /* permite que flex trunque contenido interno si hace falta */
+  min-width: 0;        
 }
 
 .predet {
@@ -53,7 +48,6 @@ hr {
   animation: fadeIn 0.8s ease-out 0.4s backwards;
 }
 
-/* ── Animaciones ── */
 @keyframes slideInLeft {
   from { opacity: 0; transform: translateX(-30px); }
   to   { opacity: 1; transform: translateX(0); }
@@ -69,11 +63,6 @@ hr {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ════════════════════════════
-   MEDIA QUERIES
-════════════════════════════ */
-
-/* ── 1100px: el Predet empieza a apretarse, le damos más espacio ── */
 @media screen and (max-width: 1100px) {
   .contsup {
     gap: 20px;
@@ -86,12 +75,6 @@ hr {
   }
 }
 
-/*
-  ── 735px: layout pasa a columna ──
-  .search y .predet dejan de ser columnas y se apilan.
-  Se consolidan todos los ajustes de clock aquí,
-  eliminando los 4 breakpoints repetidos del original.
-*/
 @media screen and (max-width: 735px) {
   .contprinc {
     padding: 15px;
@@ -121,7 +104,6 @@ hr {
   }
 }
 
-/* ── 480px ── */
 @media screen and (max-width: 480px) {
   .contprinc {
     padding: 10px;

@@ -7,7 +7,6 @@ export const Predet = memo(({ cityPred }) => {
       {cityPred && (
         <div className={styles.card}>
 
-          {/* Fila superior: ciudad + ícono en la misma línea */}
           <div className={styles.header}>
             <div className={styles.ciudad}>
               <span>{cityPred.sys.country}</span>
@@ -22,7 +21,6 @@ export const Predet = memo(({ cityPred }) => {
             </div>
           </div>
 
-          {/* Temperatura y descripción — bloque separado */}
           <div className={styles.contTemp}>
             <span className={styles.temp}>
               {`${parseInt(cityPred.main.temp)}°C`}
@@ -36,7 +34,6 @@ export const Predet = memo(({ cityPred }) => {
             </div>
           </div>
 
-          {/* Detalles: viento, humedad, presión */}
           <div className={styles.details}>
             <div className={styles.detail}>
               <span>Viento</span>

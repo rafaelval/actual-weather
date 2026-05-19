@@ -1,18 +1,16 @@
-/* ── Contenedor externo ── */
 .contPrinc {
   width: 100%;
-  max-width: 35vw;          /* En desktop ocupa su columna */
+  max-width: 35vw;         
   display: flex;
   justify-content: flex-end;
-  align-items: flex-start;  /* flex-start en vez de center: el card no flota */
+  align-items: flex-start; 
   padding: 20px;
 }
 
-/* ── Card principal ── */
 .card {
   display: flex;
   flex-direction: column;
-  gap: 20px;                /* Reemplaza los margin-bottom sueltos */
+  gap: 20px;
   padding: 28px;
   border-radius: 25px;
   background: linear-gradient(135deg, rgba(20, 70, 140, 0.95) 0%, rgba(40, 100, 180, 0.95) 100%);
@@ -28,11 +26,10 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-/* ── Header: ciudad + ícono siempre en fila ── */
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;  /* Ciudad a la izquierda, ícono a la derecha */
+  justify-content: space-between;
   align-items: center;
   gap: 12px;
 }
@@ -41,9 +38,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* Evita que nombres largos rompan el layout */
   overflow: hidden;
-  min-width: 0;             /* Permite que flex trunque el texto */
+  min-width: 0;
 }
 
 .ciudad span {
@@ -60,7 +56,6 @@
   margin-top: 6px;
   font-weight: 700;
   letter-spacing: 0.5px;
-  /* Trunca nombres de ciudad muy largos */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -70,7 +65,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;           /* El ícono no se encoge si el nombre es largo */
+  flex-shrink: 0;   
 }
 
 .image img {
@@ -84,10 +79,9 @@
   50%       { transform: translateY(-12px); }
 }
 
-/* ── Temperatura ── */
 .contTemp {
   display: flex;
-  flex-direction: row;      /* Temperatura grande + min/max en fila */
+  flex-direction: row;
   align-items: center;
   gap: 20px;
 }
@@ -121,7 +115,6 @@
   color: white;
 }
 
-/* ── Detalles: viento, humedad, presión ── */
 .details {
   display: flex;
   justify-content: space-around;
@@ -156,11 +149,7 @@
   font-weight: 600;
 }
 
-/* ════════════════════════════
-   MEDIA QUERIES
-════════════════════════════ */
 
-/* ── 1200px ── */
 @media screen and (max-width: 1200px) {
   .contPrinc {
     max-width: 42vw;
@@ -177,7 +166,6 @@
   }
 }
 
-/* ── 995px ── */
 @media screen and (max-width: 995px) {
   .contPrinc {
     max-width: 48vw;
@@ -193,7 +181,6 @@
   }
 }
 
-/* ── 780px ── */
 @media screen and (max-width: 780px) {
   .contPrinc {
     max-width: 52vw;
@@ -203,11 +190,6 @@
   }
 }
 
-/*
-  ── 735px ──
-  Aquí el layout padre colapsa a columna (suponemos).
-  .contPrinc pasa a full width y el card se centra.
-*/
 @media screen and (max-width: 735px) {
   .contPrinc {
     max-width: 100%;
@@ -231,7 +213,6 @@
   }
 }
 
-/* ── 480px ── */
 @media screen and (max-width: 480px) {
   .contPrinc {
     padding: 0 10px;
@@ -266,7 +247,7 @@
   }
 }
 
-/* ── 360px ── */
+
 @media screen and (max-width: 360px) {
   .card {
     padding: 12px;
@@ -285,7 +266,7 @@
     height: 70px;
   }
   .details {
-    flex-wrap: wrap;  /* Si no caben los 3 en fila, rompen a 2 columnas */
+    flex-wrap: wrap; 
     padding: 12px;
   }
   .detail {

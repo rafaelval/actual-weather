@@ -61,9 +61,8 @@
   font-weight: bold;
   color: #00ff88;
   text-shadow: 0 0 10px #00ff88, 0 0 20px rgba(0, 255, 136, 0.3);
-  /* Estas dos líneas son el fix principal */
-  white-space: nowrap;       /* nunca rompe a segunda línea */
-  letter-spacing: 1px;       /* menos que antes — la fuente digital ya es ancha */
+  white-space: nowrap;     
+  letter-spacing: 1px;      
 }
 
 .container span {
@@ -81,7 +80,6 @@
   width: 100%;
 }
 
-/* ── 768px ── */
 @media screen and (max-width: 768px) {
   .contPrinc {
     justify-content: center;
@@ -102,7 +100,6 @@
   }
 }
 
-/* ── 540px ── */
 @media screen and (max-width: 540px) {
   .container {
     flex: 1 1 85px;
@@ -122,7 +119,6 @@
   }
 }
 
-/* ── 400px ── */
 @media screen and (max-width: 400px) {
   .contPrinc {
     gap: 5px;
@@ -137,7 +133,7 @@
   }
   .contador p {
     font-size: 0.82rem;
-    letter-spacing: 0;  /* sin letter-spacing en pantallas muy pequeñas */
+    letter-spacing: 0; 
   }
   .container span {
     font-size: 0.58rem;

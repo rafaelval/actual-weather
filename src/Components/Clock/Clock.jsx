@@ -1,13 +1,11 @@
 import React, { useEffect, useState, useMemo, memo } from "react";
 import styles from "./Clock.module.css";
 
-// Función helper fuera del componente para no redefinirla en cada render
 const pad = (n) => String(n).padStart(2, "0");
 
 const ClockItem = memo(({ cityTime, styles }) => (
   <div className={styles.container}>
     <div className={styles.contador}>
-      {/* Eliminamos los espacios extra alrededor de los : */}
       <p>{pad(cityTime.time.getHours())}:{pad(cityTime.time.getMinutes())}:{pad(cityTime.time.getSeconds())}</p>
     </div>
     <span>{cityTime.name}</span>
